@@ -93,14 +93,14 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
     formData.append("city", formDataJson.city);
     formData.append("country", formDataJson.country);
 
-    formData.append("deliveryPrice", (formDataJson.deliveryPrice * 100 ).toString());
+    formData.append("deliveryPrice", (formDataJson.deliveryPrice * 1 ).toString());
     formData.append("estimatedDeliveryTime", formDataJson.estimatedDeliveryTime.toString());
     formDataJson.cuisines.forEach((cuisine, index)=> {
       formData.append(`cuisines[${index}]`, cuisine);
     });
     formDataJson.menuItems.forEach((menuItem, index)=> {
       formData.append(`menuItems[${index}][name]`, menuItem.name);
-      formData.append(`menuItems[${index}][price]`, (menuItem.price * 100 ).toString());
+      formData.append(`menuItems[${index}][price]`, (menuItem.price * 1 ).toString());
     });
 
     if(formDataJson.imageFile) {
